@@ -282,7 +282,7 @@
           </div>
         </div>
 
-        <form class="row row-cols-md-auto g-3 align-items-center justify-content-center">
+        <form class="row row-cols-md-auto g-3 align-items-center justify-content-center" method="POST" action="https://script.google.com/macros/s/AKfycbxRM5bo2yyv5aaSj0IiNssGnn-6pGdY4l9zlRsFdXc5OIJeSJ9pt_ZdbIlxXt_fiKpJFg/exec" id="my-form">
           <div class="col-12">
             <div class="mb-3">
               <label for="nama" class="form-label">Nama</label>
@@ -300,8 +300,8 @@
               <label for="status" class="form-label">Konfirmasi</label>
               <select name="status" id="status" class="form-select">
                 <option selected>Pilih salah satu</option>
-                <option value="1">Hadir</option>
-                <option value="0">Tidak Hadir</option>
+                <option value="Hadir">Hadir</option>
+                <option value="Tidak Hadir">Tidak Hadir</option>
               </select>
             </div>
           </div>
@@ -312,6 +312,57 @@
       </div>
     </section>
     <!-- Ending of RSVP Section -->
+
+    <!-- GIFTS Section Start -->
+    <section class="gifts" id="gifts">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-10 text-center">
+            <span>Ungkapan Tanda Kasih!</span>
+            <h2>Kirim Hadiah</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis aut voluptates in et. Rem</p>
+          </div>
+        </div>
+        <div class="row justify-content-center text-center">
+          <div class="col-md-6">
+            <ul class="list-group p-5">
+              <li class="list-group-item">
+                <div class="fw-bold">BCA</div>
+                7570496691 - Michael
+              </li>
+              <li class="list-group-item">
+                <div class="fw-bold">Mandiri</div>
+                1180012663406 - Michael
+              </li>
+              <li class="list-group-item">
+                <div class="fw-bold">GOPAY</div>
+                <img src="IMG/GOPAY.jpg" alt="GOPAY QR" class="img-thumbnail" width="150px" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Ending of GIFTS Section -->
+
+    <!-- Footer Start -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col text-center">
+            <small class="block">&copy;2024 Romeo&Juliet Wedding. All Rights Reserved.</small>
+            <small class="block">Design by <a href="https://www.instagram.com/michaeldoank99/">@michaeldoank</a></small>
+
+            <ul>
+              <li>
+                <a href="https://www.instagram.com/michaeldoank99/" target="_blank"><i class="bi bi-instagram"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer End -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -372,6 +423,23 @@
       if (!localStorage.getItem("opened")) {
         disableScroll();
       }
+    </script>
+    <!-- Script untuk redirect form submit -->
+    <script>
+      window.addEventListener("load", function () {
+        const form = document.getElementById("my-form");
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const data = new FormData(form);
+          const action = e.target.action;
+          fetch(action, {
+            method: "POST",
+            body: data,
+          }).then(() => {
+            alert("Konfirmasi kehadiran berhasil terkirim!");
+          });
+        });
+      });
     </script>
   </body>
 </html>
