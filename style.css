@@ -354,6 +354,21 @@ body {
   border: 1px solid white;
 }
 
+.gifts ul li span {
+  display: inline;
+  margin-bottom: 0;
+}
+
+.gifts ul li p {
+  margin-bottom: 0;
+  display: inline;
+}
+
+.gifts button {
+  border: none;
+  display: inline-block;
+}
+
 footer {
   padding: 3rem;
   color: white;

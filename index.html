@@ -362,11 +362,13 @@
             <ul class="list-group p-5">
               <li class="list-group-item">
                 <div class="fw-bold">BCA</div>
-                7570496691 - Michael
+                <p><span id="text-bca">7570496691</span> - Michael</p>
+                <button id="copy-bca"><i class="bi bi-copy"></i></button>
               </li>
               <li class="list-group-item">
                 <div class="fw-bold">Mandiri</div>
-                1180012663406 - Michael
+                <p><span id="text-mandiri">1180012663406</span> - Michael</p>
+                <button id="copy-mandiri"><i class="bi bi-copy"></i></button>
               </li>
               <li class="list-group-item">
                 <div class="fw-bold">GOPAY</div>
@@ -526,6 +528,30 @@
       namaContainer.innerHTML = `${pronoun} ${nama},`.replace(/ ,$/, ",");
 
       document.querySelector("#nama").value = nama;
+    </script>
+
+    <!-- Script Copy Text -->
+    <script>
+      function copyText(htmlElement) {
+        if (!htmlElement) {
+          return;
+        }
+        let elementText = htmlElement.innerText;
+
+        let inputElement = document.createElement("input");
+        inputElement.setAttribute("value", elementText);
+        document.body.appendChild(inputElement);
+        inputElement.select();
+        document.execCommand("copy");
+        inputElement.parentNode.removeChild(inputElement);
+      }
+
+      document.querySelector("#copy-bca").onclick = function () {
+        copyText(document.querySelector("#text-bca"));
+      };
+      document.querySelector("#copy-mandiri").onclick = function () {
+        copyText(document.querySelector("#text-mandiri"));
+      };
     </script>
   </body>
 </html>
